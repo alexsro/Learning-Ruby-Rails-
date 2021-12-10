@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+  host: <%= ENV['db.host'] %>
+  username: <%= ENV['db.username'] %>
+  password: <%= ENV['db.password'] %>
+
+development:
+  <<: *default
+  database: cdms_development
+
+test:
+  <<: *default
+  database: cdms_test

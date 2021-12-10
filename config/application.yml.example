@@ -1,0 +1,10 @@
+database: &database
+  db.username: "username"
+  db.password: "password"
+  db.host: "host"
+
+development: 
+  <<: *database
+
+test:
+  <<: *database
