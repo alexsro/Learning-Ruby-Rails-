@@ -1,4 +1,4 @@
-
+# frozen_string_literal: true
 require 'socket'
 require 'ipaddr'
 Rails.application.configure do
@@ -67,3 +67,7 @@ Rails.application.configure do
     addrinfo.ipv4? ? res << IPAddr.new(addrinfo.ip_address).mask(24) : res
   end
 end
+
+# Setup better_errors to run in a docker container
+ip = IPSocket.getaddress(Socket.gethostname)
+BetterErrors::Middleware.allow_ip! "#{ip}/16"
