@@ -7,7 +7,7 @@
           <%= icon('fas', 'user-cog') %>
         </span>
         <div>
-          <h4 class="m-0" data-toggle="tooltip" data-placement="bottom" title="Clique aqui para acessar a área administrativa">
+          <h4 class="m-0" data-bs-toggle="tooltip" data-placement="bottom" title="Clique aqui para acessar a área administrativa">
             <%= link_to 'Área administrativa', '#' %>
           </h4>
           <small class="text-muted">Administradores</small>
@@ -23,7 +23,7 @@
           <%= icon('fas', 'user-cog') %>
         </span>
         <div>
-          <h4 class="m-0" data-toggle="tooltip" data-placement="bottom" title="Clique aqui para acessar a área do cliente">
+          <h4 class="m-0" data-bs-toggle="tooltip" data-placement="bottom" title="Clique aqui para acessar a área do cliente">
               <%= link_to 'Área do usuário', '#'  %>
           </h4>
           <small class="text-muted">Usuários</small>
@@ -31,5 +31,11 @@
       </div>
     </div>
   </div>
+
+<% if admin_signed_in? %>
+  <%= link_to 'Sair', destroy_admin_session_path, method: :delete %>
+<% else %>
+  <%= link_to 'Entrar', new_admin_session_path %>
+<% end %>
 
 </div>
